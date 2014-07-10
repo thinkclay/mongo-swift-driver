@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		92B2F706196F376F00B49E44 /* Document.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92B2F705196F376F00B49E44 /* Document.swift */; };
 		A31B4863196F1CC000A1D1BC /* mongo-swift.h in Headers */ = {isa = PBXBuildFile; fileRef = A31B4862196F1CC000A1D1BC /* mongo-swift.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A31B4869196F1CC000A1D1BC /* mongo-swift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A31B485D196F1CC000A1D1BC /* mongo-swift.framework */; };
 		A31B4870196F1CC000A1D1BC /* mongo_swiftTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A31B486F196F1CC000A1D1BC /* mongo_swiftTests.swift */; };
@@ -25,6 +26,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		92B2F705196F376F00B49E44 /* Document.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Document.swift; sourceTree = "<group>"; };
 		A31B485D196F1CC000A1D1BC /* mongo-swift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = "mongo-swift.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A31B4861196F1CC000A1D1BC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A31B4862196F1CC000A1D1BC /* mongo-swift.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "mongo-swift.h"; sourceTree = "<group>"; };
@@ -79,6 +81,7 @@
 				A31B4862196F1CC000A1D1BC /* mongo-swift.h */,
 				A31B4879196F2F0A00A1D1BC /* MongoClient.swift */,
 				A31B487D196F301300A1D1BC /* mongo-swift-Bridging-Header.h */,
+				92B2F705196F376F00B49E44 /* Document.swift */,
 				A31B487B196F2F1500A1D1BC /* MongoBridge.c */,
 				A31B4860196F1CC000A1D1BC /* Supporting Files */,
 			);
@@ -220,6 +223,7 @@
 			files = (
 				A31B487A196F2F0A00A1D1BC /* MongoClient.swift in Sources */,
 				A31B487C196F2F1500A1D1BC /* MongoBridge.c in Sources */,
+				92B2F706196F376F00B49E44 /* Document.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -427,6 +431,7 @@
 				A31B4875196F1CC000A1D1BC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		A31B4876196F1CC000A1D1BC /* Build configuration list for PBXNativeTarget "mongo-swiftTests" */ = {
 			isa = XCConfigurationList;
@@ -435,6 +440,7 @@
 				A31B4878196F1CC000A1D1BC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

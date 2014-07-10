@@ -12,6 +12,8 @@
 		A31B4870196F1CC000A1D1BC /* mongo_swiftTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A31B486F196F1CC000A1D1BC /* mongo_swiftTests.swift */; };
 		A31B487A196F2F0A00A1D1BC /* MongoClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = A31B4879196F2F0A00A1D1BC /* MongoClient.swift */; };
 		A31B487C196F2F1500A1D1BC /* MongoBridge.c in Sources */ = {isa = PBXBuildFile; fileRef = A31B487B196F2F1500A1D1BC /* MongoBridge.c */; };
+		A3471B56196F36BD008247D2 /* libbson-1.0.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = A3471B54196F36BD008247D2 /* libbson-1.0.0.dylib */; };
+		A3471B57196F36BD008247D2 /* libmongoc-1.0.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = A3471B55196F36BD008247D2 /* libmongoc-1.0.0.dylib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,6 +36,8 @@
 		A31B4879196F2F0A00A1D1BC /* MongoClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MongoClient.swift; sourceTree = "<group>"; };
 		A31B487B196F2F1500A1D1BC /* MongoBridge.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = MongoBridge.c; sourceTree = "<group>"; };
 		A31B487D196F301300A1D1BC /* mongo-swift-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "mongo-swift-Bridging-Header.h"; sourceTree = "<group>"; };
+		A3471B54196F36BD008247D2 /* libbson-1.0.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; path = "libbson-1.0.0.dylib"; sourceTree = "<group>"; };
+		A3471B55196F36BD008247D2 /* libmongoc-1.0.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; path = "libmongoc-1.0.0.dylib"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -41,6 +45,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A3471B56196F36BD008247D2 /* libbson-1.0.0.dylib in Frameworks */,
+				A3471B57196F36BD008247D2 /* libmongoc-1.0.0.dylib in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -76,6 +82,8 @@
 		A31B485F196F1CC000A1D1BC /* mongo-swift */ = {
 			isa = PBXGroup;
 			children = (
+				A3471B54196F36BD008247D2 /* libbson-1.0.0.dylib */,
+				A3471B55196F36BD008247D2 /* libmongoc-1.0.0.dylib */,
 				A31B4862196F1CC000A1D1BC /* mongo-swift.h */,
 				A31B4879196F2F0A00A1D1BC /* MongoClient.swift */,
 				A31B487D196F301300A1D1BC /* mongo-swift-Bridging-Header.h */,
@@ -342,6 +350,11 @@
 				INFOPLIST_FILE = "mongo-swift/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+					"$(PROJECT_DIR)/mongo-swift",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_OBJC_BRIDGING_HEADER = "mongo-swift/mongo-swift-Bridging-Header.h";
@@ -368,6 +381,11 @@
 				INFOPLIST_FILE = "mongo-swift/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+					"$(PROJECT_DIR)/mongo-swift",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_OBJC_BRIDGING_HEADER = "mongo-swift/mongo-swift-Bridging-Header.h";
@@ -427,6 +445,7 @@
 				A31B4875196F1CC000A1D1BC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		A31B4876196F1CC000A1D1BC /* Build configuration list for PBXNativeTarget "mongo-swiftTests" */ = {
 			isa = XCConfigurationList;
@@ -435,6 +454,7 @@
 				A31B4878196F1CC000A1D1BC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

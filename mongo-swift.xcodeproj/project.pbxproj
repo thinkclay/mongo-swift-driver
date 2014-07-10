@@ -10,6 +10,8 @@
 		A31B4863196F1CC000A1D1BC /* mongo-swift.h in Headers */ = {isa = PBXBuildFile; fileRef = A31B4862196F1CC000A1D1BC /* mongo-swift.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A31B4869196F1CC000A1D1BC /* mongo-swift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A31B485D196F1CC000A1D1BC /* mongo-swift.framework */; };
 		A31B4870196F1CC000A1D1BC /* mongo_swiftTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A31B486F196F1CC000A1D1BC /* mongo_swiftTests.swift */; };
+		A31B487A196F2F0A00A1D1BC /* MongoClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = A31B4879196F2F0A00A1D1BC /* MongoClient.swift */; };
+		A31B487C196F2F1500A1D1BC /* MongoBridge.c in Sources */ = {isa = PBXBuildFile; fileRef = A31B487B196F2F1500A1D1BC /* MongoBridge.c */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -29,6 +31,9 @@
 		A31B4868196F1CC000A1D1BC /* mongo-swiftTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "mongo-swiftTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A31B486E196F1CC000A1D1BC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A31B486F196F1CC000A1D1BC /* mongo_swiftTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = mongo_swiftTests.swift; sourceTree = "<group>"; };
+		A31B4879196F2F0A00A1D1BC /* MongoClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MongoClient.swift; sourceTree = "<group>"; };
+		A31B487B196F2F1500A1D1BC /* MongoBridge.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = MongoBridge.c; sourceTree = "<group>"; };
+		A31B487D196F301300A1D1BC /* mongo-swift-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "mongo-swift-Bridging-Header.h"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,6 +77,9 @@
 			isa = PBXGroup;
 			children = (
 				A31B4862196F1CC000A1D1BC /* mongo-swift.h */,
+				A31B4879196F2F0A00A1D1BC /* MongoClient.swift */,
+				A31B487D196F301300A1D1BC /* mongo-swift-Bridging-Header.h */,
+				A31B487B196F2F1500A1D1BC /* MongoBridge.c */,
 				A31B4860196F1CC000A1D1BC /* Supporting Files */,
 			);
 			path = "mongo-swift";
@@ -210,6 +218,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A31B487A196F2F0A00A1D1BC /* MongoClient.swift in Sources */,
+				A31B487C196F2F1500A1D1BC /* MongoBridge.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -316,34 +326,51 @@
 		A31B4874196F1CC000A1D1BC /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				FRAMEWORK_VERSION = A;
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"/Applications/Xcode6-Beta.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include",
+					"/usr/local/include/libbson-1.0",
+					"/usr/local/include/libmongoc-1.0",
+				);
 				INFOPLIST_FILE = "mongo-swift/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "mongo-swift/mongo-swift-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
 		A31B4875196F1CC000A1D1BC /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				FRAMEWORK_VERSION = A;
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"/Applications/Xcode6-Beta.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include",
+					"/usr/local/include/libbson-1.0",
+					"/usr/local/include/libmongoc-1.0",
+				);
 				INFOPLIST_FILE = "mongo-swift/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "mongo-swift/mongo-swift-Bridging-Header.h";
 			};
 			name = Release;
 		};

@@ -9,6 +9,7 @@
 import Foundation
 
 // TODO: use real bson type
+typealias Document = String
 
 
 class MongoClient {
@@ -19,11 +20,7 @@ class MongoClient {
         self.__client = mongoc_client_new(cConnectionString)
     }
     
-    func getDatabase(name:String) {
-        // TODO
-    }
-    
-    func runCommand(command:String) {
-        // TODO: this doesn't actually take a string. It takes a Document.
+    func getDatabase(name:String) -> Database {
+        return Database(name:name)
     }
 }

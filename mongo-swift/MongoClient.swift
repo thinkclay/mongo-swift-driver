@@ -8,10 +8,6 @@
 
 import Foundation
 
-// TODO: use real bson type
-typealias Document = String
-
-
 class MongoClient {
     var __client:COpaquePointer
     

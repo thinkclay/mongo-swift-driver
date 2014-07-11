@@ -8,14 +8,16 @@
 
 import Foundation
 
+typealias Document = BSONValue
+
 enum BSONValue {
 
     /*
      * Basic types
      */
-    case BSONByte(UInt8)
-    case BSONInt32(UInt32)
-    case BSONInt64(UInt64)
+    case BSONByte(Int8)
+    case BSONInt32(Int32)
+    case BSONInt64(Int64)
     case BSONDouble(Double)
     case BSONString(String)
     
@@ -34,7 +36,7 @@ enum BSONValue {
      * XXX: Add the missing crap
      */
     
-    var byte: UInt8? {
+    var byte: Int8? {
     switch self {
     case .BSONByte(let value):
         return value
@@ -43,7 +45,7 @@ enum BSONValue {
         }
     }
     
-    var int32: UInt32? {
+    var int32: Int32? {
     switch self {
     case .BSONInt32(let value):
         return value
@@ -52,7 +54,7 @@ enum BSONValue {
         }
     }
     
-    var int64: UInt64? {
+    var int64: Int64? {
     switch self {
     case .BSONInt64(let value):
         return value
@@ -154,5 +156,32 @@ enum BSONValue {
                     userInfo: [NSLocalizedDescriptionKey:"Bad key path"]))
             }
         }
+    }
+    
+    func toCBSON() -> UnsafePointer<bson_t>? {
+        // Short on time... only doing Dictionary
+        var base:UnsafePointer<bson_t> = bson_new()
+        if let hash = self.object {
+            for (key, value) in hash {
+                let cKeyName:CString = cStringFromNSString(key)
+                let cKeyLen:Int32 = countElements(key).bridgeToObjectiveC().intValue
+                
+                // Only doing strings and numbers
+                switch value {
+                case .BSONInt32(let x):
+                    bson_append_int32(base, cKeyName, cKeyLen, x)
+                case .BSONInt64(let x):
+                    bson_append_int64(base, cKeyName, cKeyLen, x)
+                case .BSONString(let x):
+                    let utf8Str = cStringFromNSString(value.string!)
+                    let utf8Len = countElements(value.string!).bridgeToObjectiveC().intValue
+                    bson_append_utf8(base, cKeyName, cKeyLen, utf8Str, utf8Len)
+                default:
+                    return nil
+                }
+            }
+            return base
+        }
+        return nil
     }
 }

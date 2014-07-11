@@ -27,7 +27,7 @@ class Collection {
             nil,                // const bson_t*
             nil,                // const bson_t*
             nil)                // const mongoc_read_prefs_t*
-        return Cursor(__cursor: __cursor)
+        return Cursor(__collection: self.__collection)
     }
 //    
 //    func find(querySpec:Document) -> Cursor {
@@ -38,8 +38,9 @@ class Collection {
 //        return Cursor()
 //    }
     
-    func insert(document: Document) {
-        // TODO
+    func insert(document: BSONValue) {
+        let c_bson_doc = document.toCBSON()
+        mongoc_collection_insert(self.__collection, MONGOC_INSERT_NONE, c_bson_doc!, nil, nil)
     }
     
     func insert(document: Document, writeConcern: WriteConcern) {

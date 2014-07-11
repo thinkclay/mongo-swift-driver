@@ -24,7 +24,7 @@ class Database {
         return Collection(name: name, __collection: collection)
     }
     
-    func runCommand(command: Document) -> Document {
+    func runCommand(command: Document) -> Document? {
         // Just do isMaster for now
         var commandSpec:UnsafePointer<bson_t> = bson_new()
         bson_append_int32(commandSpec, "isMaster", 8, 1)
@@ -37,6 +37,6 @@ class Database {
             commandResponse,
             nil)
         
-        return "hi"
+        return nil
     }
 }

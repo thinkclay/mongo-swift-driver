@@ -24,11 +24,13 @@ class Cursor {
     var __collection: COpaquePointer
     var skip:UInt
     var limit:UInt
-    var options:UInt
+    var options:CursorOptions
     
     init(__collection: COpaquePointer) {
         self.__collection = __collection
         self.skip = 0
+        self.limit = 0
+        self.options = CursorOptions.NoOptions
     }
     
     func skip(skip: UInt) -> Cursor {

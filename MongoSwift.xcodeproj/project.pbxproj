@@ -8,13 +8,17 @@
 
 /* Begin PBXBuildFile section */
 		92B2F706196F376F00B49E44 /* Document.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92B2F705196F376F00B49E44 /* Document.swift */; };
+		A30BF1D719705E9800572371 /* libbson-1.0.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = A3471B54196F36BD008247D2 /* libbson-1.0.0.dylib */; };
+		A30BF1D819705E9A00572371 /* libmongoc-1.0.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = A3471B55196F36BD008247D2 /* libmongoc-1.0.0.dylib */; };
+		A30BF1E01970607500572371 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = A30BF1DF1970607500572371 /* main.swift */; };
 		A31B4863196F1CC000A1D1BC /* MongoSwift.h in Headers */ = {isa = PBXBuildFile; fileRef = A31B4862196F1CC000A1D1BC /* MongoSwift.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A31B4869196F1CC000A1D1BC /* MongoSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A31B485D196F1CC000A1D1BC /* MongoSwift.framework */; };
 		A31B4870196F1CC000A1D1BC /* MongoSwiftTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A31B486F196F1CC000A1D1BC /* MongoSwiftTests.swift */; };
 		A31B487A196F2F0A00A1D1BC /* MongoClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = A31B4879196F2F0A00A1D1BC /* MongoClient.swift */; };
 		A31B487C196F2F1500A1D1BC /* MongoBridge.c in Sources */ = {isa = PBXBuildFile; fileRef = A31B487B196F2F1500A1D1BC /* MongoBridge.c */; };
-		A3471B56196F36BD008247D2 /* libbson-1.0.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = A3471B54196F36BD008247D2 /* libbson-1.0.0.dylib */; };
-		A3471B57196F36BD008247D2 /* libmongoc-1.0.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = A3471B55196F36BD008247D2 /* libmongoc-1.0.0.dylib */; };
+		A33E8127197063140061ABD0 /* MongoSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A31B485D196F1CC000A1D1BC /* MongoSwift.framework */; };
+		A33E8128197063170061ABD0 /* libbson-1.0.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = A3471B54196F36BD008247D2 /* libbson-1.0.0.dylib */; };
+		A33E8129197063190061ABD0 /* libmongoc-1.0.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = A3471B55196F36BD008247D2 /* libmongoc-1.0.0.dylib */; };
 		A3471B59196F370A008247D2 /* Database.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3471B58196F370A008247D2 /* Database.swift */; };
 		A3471B5B196F3773008247D2 /* Collection.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3471B5A196F3773008247D2 /* Collection.swift */; };
 		A3941CE0196F388400B55C89 /* Cursor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3941CDF196F388400B55C89 /* Cursor.swift */; };
@@ -33,8 +37,22 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		A30BF1DB1970607500572371 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = /usr/share/man/man1/;
+			dstSubfolderSpec = 0;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		92B2F705196F376F00B49E44 /* Document.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Document.swift; sourceTree = "<group>"; };
+		A30BF1DD1970607500572371 /* SwiftBSONDump */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = SwiftBSONDump; sourceTree = BUILT_PRODUCTS_DIR; };
+		A30BF1DF1970607500572371 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		A31B485D196F1CC000A1D1BC /* MongoSwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MongoSwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A31B4861196F1CC000A1D1BC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A31B4862196F1CC000A1D1BC /* MongoSwift.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MongoSwift.h; sourceTree = "<group>"; };
@@ -43,6 +61,7 @@
 		A31B486F196F1CC000A1D1BC /* MongoSwiftTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MongoSwiftTests.swift; sourceTree = "<group>"; };
 		A31B4879196F2F0A00A1D1BC /* MongoClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MongoClient.swift; sourceTree = "<group>"; };
 		A31B487B196F2F1500A1D1BC /* MongoBridge.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = MongoBridge.c; sourceTree = "<group>"; };
+		A31B487D196F301300A1D1BC /* MongoSwift-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MongoSwift-Bridging-Header.h"; sourceTree = "<group>"; };
 		A3471B54196F36BD008247D2 /* libbson-1.0.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; path = "libbson-1.0.0.dylib"; sourceTree = "<group>"; };
 		A3471B55196F36BD008247D2 /* libmongoc-1.0.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; path = "libmongoc-1.0.0.dylib"; sourceTree = "<group>"; };
 		A3471B58196F370A008247D2 /* Database.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Database.swift; sourceTree = "<group>"; };
@@ -51,16 +70,25 @@
 		A3941CE1196F407800B55C89 /* Util.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Util.swift; sourceTree = "<group>"; };
 		A3941CE3196F474A00B55C89 /* WriteConcern.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WriteConcern.swift; sourceTree = "<group>"; };
 		A399F276196F601900135F4F /* ReadPreference.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReadPreference.swift; sourceTree = "<group>"; };
-		A31B487D196F301300A1D1BC /* MongoSwift-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MongoSwift-Bridging-Header.h"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		A30BF1DA1970607500572371 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A33E8127197063140061ABD0 /* MongoSwift.framework in Frameworks */,
+				A33E8128197063170061ABD0 /* libbson-1.0.0.dylib in Frameworks */,
+				A33E8129197063190061ABD0 /* libmongoc-1.0.0.dylib in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		A31B4859196F1CC000A1D1BC /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A3471B56196F36BD008247D2 /* libbson-1.0.0.dylib in Frameworks */,
-				A3471B57196F36BD008247D2 /* libmongoc-1.0.0.dylib in Frameworks */,
+				A30BF1D719705E9800572371 /* libbson-1.0.0.dylib in Frameworks */,
+				A30BF1D819705E9A00572371 /* libmongoc-1.0.0.dylib in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -75,11 +103,20 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A30BF1DE1970607500572371 /* SwiftBSONDump */ = {
+			isa = PBXGroup;
+			children = (
+				A30BF1DF1970607500572371 /* main.swift */,
+			);
+			path = SwiftBSONDump;
+			sourceTree = "<group>";
+		};
 		A31B4853196F1CC000A1D1BC = {
 			isa = PBXGroup;
 			children = (
 				A31B485F196F1CC000A1D1BC /* MongoSwift */,
 				A31B486C196F1CC000A1D1BC /* MongoSwiftTests */,
+				A30BF1DE1970607500572371 /* SwiftBSONDump */,
 				A31B485E196F1CC000A1D1BC /* Products */,
 			);
 			sourceTree = "<group>";
@@ -89,6 +126,7 @@
 			children = (
 				A31B485D196F1CC000A1D1BC /* MongoSwift.framework */,
 				A31B4868196F1CC000A1D1BC /* MongoSwiftTests.xctest */,
+				A30BF1DD1970607500572371 /* SwiftBSONDump */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -98,9 +136,9 @@
 			children = (
 				A3471B54196F36BD008247D2 /* libbson-1.0.0.dylib */,
 				A3471B55196F36BD008247D2 /* libmongoc-1.0.0.dylib */,
-				A31B4879196F2F0A00A1D1BC /* MongoClient.swift */,
 				A3941CE1196F407800B55C89 /* Util.swift */,
 				A3471B58196F370A008247D2 /* Database.swift */,
+				92B2F705196F376F00B49E44 /* Document.swift */,
 				A3471B5A196F3773008247D2 /* Collection.swift */,
 				A3941CE3196F474A00B55C89 /* WriteConcern.swift */,
 				A399F276196F601900135F4F /* ReadPreference.swift */,
@@ -108,7 +146,6 @@
 				A31B4879196F2F0A00A1D1BC /* MongoClient.swift */,
 				A31B4862196F1CC000A1D1BC /* MongoSwift.h */,
 				A31B487D196F301300A1D1BC /* MongoSwift-Bridging-Header.h */,
-				92B2F705196F376F00B49E44 /* Document.swift */,
 				A31B487B196F2F1500A1D1BC /* MongoBridge.c */,
 				A31B4860196F1CC000A1D1BC /* Supporting Files */,
 			);
@@ -156,6 +193,23 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
+		A30BF1DC1970607500572371 /* SwiftBSONDump */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A30BF1E11970607500572371 /* Build configuration list for PBXNativeTarget "SwiftBSONDump" */;
+			buildPhases = (
+				A30BF1D91970607500572371 /* Sources */,
+				A30BF1DA1970607500572371 /* Frameworks */,
+				A30BF1DB1970607500572371 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SwiftBSONDump;
+			productName = SwiftBSONDump;
+			productReference = A30BF1DD1970607500572371 /* SwiftBSONDump */;
+			productType = "com.apple.product-type.tool";
+		};
 		A31B485C196F1CC000A1D1BC /* MongoSwift */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = A31B4873196F1CC000A1D1BC /* Build configuration list for PBXNativeTarget "MongoSwift" */;
@@ -201,6 +255,9 @@
 				LastUpgradeCheck = 0600;
 				ORGANIZATIONNAME = WDEM;
 				TargetAttributes = {
+					A30BF1DC1970607500572371 = {
+						CreatedOnToolsVersion = 6.0;
+					};
 					A31B485C196F1CC000A1D1BC = {
 						CreatedOnToolsVersion = 6.0;
 					};
@@ -224,6 +281,7 @@
 			targets = (
 				A31B485C196F1CC000A1D1BC /* MongoSwift */,
 				A31B4867196F1CC000A1D1BC /* MongoSwiftTests */,
+				A30BF1DC1970607500572371 /* SwiftBSONDump */,
 			);
 		};
 /* End PBXProject section */
@@ -246,6 +304,14 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		A30BF1D91970607500572371 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A30BF1E01970607500572371 /* main.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		A31B4858196F1CC000A1D1BC /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -281,6 +347,46 @@
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
+		A30BF1E21970607500572371 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"/Applications/Xcode6-Beta3.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include",
+					"/usr/local/include/libmongoc-1.0",
+					"/usr/local/include/libbson-1.0",
+				);
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/mongo-swift",
+				);
+				MTL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		A30BF1E31970607500572371 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"/Applications/Xcode6-Beta3.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include",
+					"/usr/local/include/libmongoc-1.0",
+					"/usr/local/include/libbson-1.0",
+				);
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/mongo-swift",
+				);
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
 		A31B4871196F1CC000A1D1BC /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -381,6 +487,10 @@
 				INFOPLIST_FILE = "mongo-swift/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/mongo-swift",
+				);
 				PRODUCT_NAME = MongoSwift;
 				SKIP_INSTALL = YES;
 				SWIFT_OBJC_BRIDGING_HEADER = "mongo-swift/MongoSwift-Bridging-Header.h";
@@ -407,6 +517,10 @@
 				INFOPLIST_FILE = "mongo-swift/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/mongo-swift",
+				);
 				PRODUCT_NAME = MongoSwift;
 				SKIP_INSTALL = YES;
 				SWIFT_OBJC_BRIDGING_HEADER = "mongo-swift/MongoSwift-Bridging-Header.h";
@@ -425,6 +539,12 @@
 					"DEBUG=1",
 					"$(inherited)",
 				);
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"/Applications/Xcode6-Beta3.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include",
+					"/usr/local/include/libmongoc-1.0",
+					"/usr/local/include/libbson-1.0",
+				);
 				INFOPLIST_FILE = "mongo-swiftTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
 				METAL_ENABLE_DEBUG_INFO = YES;
@@ -440,6 +560,12 @@
 					"$(DEVELOPER_FRAMEWORKS_DIR)",
 					"$(inherited)",
 				);
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"/Applications/Xcode6-Beta3.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include",
+					"/usr/local/include/libmongoc-1.0",
+					"/usr/local/include/libbson-1.0",
+				);
 				INFOPLIST_FILE = "mongo-swiftTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
 				METAL_ENABLE_DEBUG_INFO = NO;
@@ -450,6 +576,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		A30BF1E11970607500572371 /* Build configuration list for PBXNativeTarget "SwiftBSONDump" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A30BF1E21970607500572371 /* Debug */,
+				A30BF1E31970607500572371 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		A31B4857196F1CC000A1D1BC /* Build configuration list for PBXProject "MongoSwift" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

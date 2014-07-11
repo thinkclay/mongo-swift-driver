@@ -21,7 +21,7 @@ class mongo_swiftTests: XCTestCase {
         super.tearDown()
     }
     
-    func simple_bson() {
+    func test_simple_bson() {
         // This is an example of a functional test case.
         let json_val = BSONValue(["10":"234"])
         XCTAssert(json_val["10"].string == "234", "Pass")

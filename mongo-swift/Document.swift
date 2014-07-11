@@ -15,10 +15,7 @@ enum BSONValue {
     /*
      * Basic types
      */
-    case BSONByte(Int8)
-    case BSONInt32(Int32)
-    case BSONInt64(Int64)
-    case BSONDouble(Double)
+    case BSONNumber(NSNumber)
     case BSONString(String)
     
     /*
@@ -36,33 +33,15 @@ enum BSONValue {
      * XXX: Add the missing crap
      */
     
-    var byte: Int8? {
+    var number: NSNumber? {
     switch self {
-    case .BSONByte(let value):
+    case .BSONNumber(let value):
         return value
     default:
         return nil
         }
     }
     
-    var int32: Int32? {
-    switch self {
-    case .BSONInt32(let value):
-        return value
-    default:
-        return nil
-        }
-    }
-    
-    var int64: Int64? {
-    switch self {
-    case .BSONInt64(let value):
-        return value
-    default:
-        return nil
-        }
-    }
-
     var string: String? {
     switch self {
     case .BSONString(let value):
@@ -95,6 +74,9 @@ enum BSONValue {
     init(_ rawObject: AnyObject) {
         switch rawObject {
             
+        case let value as NSNumber:
+            self = .BSONNumber(value)
+
         case let value as NSString:
             self = .BSONString(value)
         
@@ -168,14 +150,15 @@ enum BSONValue {
                 
                 // Only doing strings and numbers
                 switch value {
-                case .BSONInt32(let x):
-                    bson_append_int32(base, cKeyName, cKeyLen, x)
-                case .BSONInt64(let x):
-                    bson_append_int64(base, cKeyName, cKeyLen, x)
+
+                case .BSONNumber(let x):
+                    bson_append_int64(base, cKeyName, cKeyLen, x.longLongValue)
+
                 case .BSONString(let x):
                     let utf8Str = cStringFromNSString(value.string!)
                     let utf8Len = countElements(value.string!).bridgeToObjectiveC().intValue
                     bson_append_utf8(base, cKeyName, cKeyLen, utf8Str, utf8Len)
+
                 default:
                     return nil
                 }

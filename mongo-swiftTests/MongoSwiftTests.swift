@@ -27,6 +27,11 @@ class mongo_swiftTests: XCTestCase {
         XCTAssert(json_val["10"].string == "234", "Pass")
     }
     
+    func test_nested_bson() {
+        let bson_doc = BSONValue(["10" : ["20": 30]])
+        XCTAssert(bson_doc["10"]["20"].number == 30, "Pass")
+    }
+
     func testPerformanceExample() {
         // This is an example of a performance test case.
         self.measureBlock() {

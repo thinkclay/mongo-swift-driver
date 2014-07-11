@@ -23,8 +23,13 @@ enum BSONValue {
      * Non-terminals.
      */
     case BSONArray(Array<BSONValue>)
-    case BSONOBject(Dictionary<String, BSONValue>)
+    case BSONObject(Dictionary<String, BSONValue>)
 
+    /*
+     * Error conditions
+     */
+    case BSONInvalid(NSError)
+    
     /*
      * XXX: Add the missing crap
      */
@@ -56,6 +61,15 @@ enum BSONValue {
         }
     }
 
+    var string: String? {
+    switch self {
+    case .BSONString(let value):
+        return value
+    default:
+        return nil
+        }
+    }
+    
     /* XXX: add missing double/string */
     
     var array: Array<BSONValue>? {
@@ -66,18 +80,79 @@ enum BSONValue {
         return nil
         }
     }
+
+    var object: Dictionary<String, BSONValue>? {
+    switch self {
+    case .BSONObject(let value):
+        return value
+    default:
+        return nil
+        }
+    }
     
-    init (_ rawObject: AnyObject) {
+    init(_ rawObject: AnyObject) {
         switch rawObject {
+            
+        case let value as NSString:
+            self = .BSONString(value)
+        
         case let value as NSArray:
         var BSONValues = [BSONValue]()
         for el: AnyObject in value {
-            let b_val = BSONValue(el)
-            if b_val {
-                bsonvalues.append(b_val)
+            /* XXX: el can ever be nil */
+            BSONValues.append(BSONValue(el))
+        }
+        self = .BSONArray(BSONValues)
+            
+        case let value as NSDictionary:
+            var bson_obj = Dictionary<String, BSONValue>()
+            for (my_key:AnyObject, my_value:AnyObject) in value {
+                if let key = my_key as? NSString {
+                    let b_val = BSONValue(my_value)
+                    /* XXX: value can ever be nil ? */
+                    bson_obj[key] = b_val
+                }
+            }
+        self = .BSONObject(bson_obj)
+        
+        default:
+            self = .BSONInvalid(NSError(domain: "BSONErrorDomain", code: 1001,
+                userInfo: [NSLocalizedDescriptionKey:"Invalid BSON type"]))
+        }
+    }
+    
+    subscript(index: Int) -> BSONValue {
+        get {
+            switch self {
+            case .BSONArray(let bsonArray) where bsonArray.count > index:
+                return bsonArray[index]
+            case .BSONInvalid(let error):
+                return BSONValue.BSONInvalid(NSError(domain: "BSONErrorDomain", code: 1001,
+                    userInfo: [NSLocalizedDescriptionKey:"Bad key path"]))
+            default:
+                return BSONValue.BSONInvalid(NSError(domain: "BSONErrorDomain", code: 1001,
+                    userInfo: [NSLocalizedDescriptionKey:"Bad key path"]))
             }
         }
-        self = .BSONArray(BSonValues)
+    }
+    
+    subscript(key: String) -> BSONValue {
+        get {
+            switch self {
+            case .BSONObject(let bsonDictionary):
+                if let value = bsonDictionary[key] {
+                    return value
+                } else {
+                    return BSONValue.BSONInvalid(NSError(domain: "BSONErrorDomain", code: 1001,
+                        userInfo: [NSLocalizedDescriptionKey:"Bad key path"]))
+                }
+            case .BSONInvalid(let error):
+                return BSONValue.BSONInvalid(NSError(domain: "BSONErrorDomain", code: 1001,
+                    userInfo: [NSLocalizedDescriptionKey:"Bad key path"]))
+            default:
+                return BSONValue.BSONInvalid(NSError(domain: "BSONErrorDomain", code: 1001,
+                    userInfo: [NSLocalizedDescriptionKey:"Bad key path"]))
+            }
         }
     }
 }

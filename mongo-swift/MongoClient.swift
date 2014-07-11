@@ -21,6 +21,8 @@ class MongoClient {
     }
     
     func getDatabase(name:String) -> Database {
-        return Database(name:name)
+        return Database(
+            name:name,
+            __database:mongoc_client_get_database(self.__client, cStringFromNSString(name)))
     }
 }
